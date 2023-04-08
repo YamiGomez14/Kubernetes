@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  prueba1:
+    build: ./prueba1
+    ports:
+      - "3000:3000"
+    image: my-images/prueba1
+  prueba2:
+    build: ./prueba2
+    ports:
+      - "3001:3001"
+    environment:
+      - "PORT=3001"
+    image: my-images/prueba2
+    

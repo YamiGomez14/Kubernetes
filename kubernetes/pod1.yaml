@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prueba1
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: prueba1
+  template:
+    metadata:
+      labels:
+        app: prueba1
+    spec:
+      containers:
+      - name: prueba1
+        image: my-images/prueba1:latest
+        imagePullPolicy: Never
+        resources:
+        #limites de CPU Y memoria
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+            #puerto que escucha
+        ports:
+        - containerPort: 3000
+---
+#balanceo de cargas
+apiVersion: v1
+kind: Service
+metadata:
+  name: prueba1
+spec:
+  selector:
+    app: prueba1
+  ports:
+  - port: 4000
+    targetPort: 3000
+  type: LoadBalancer
+        

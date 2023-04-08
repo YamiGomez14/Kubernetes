@@ -1,0 +1,15 @@
+*
+!src
+!.pnp.cjs
+!.yarnrc.yml
+!package.json
+!yarn.lock
+!.editorconfig
+
+
+!.yarn/patches
+!.yarn/cache
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
